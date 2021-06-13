@@ -16,8 +16,13 @@ const typeDefs = gql`
     type: String!
   }
 
+  input PetFilter {
+    type: String
+  }
+
   type Query {
-    pets: [Pet]
+    pets(filters: PetFilter, limit: Int): [Pet]
+    pet(id: String): Pet
   }
 `;
 

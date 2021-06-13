@@ -5,8 +5,11 @@
 
 module.exports = {
   Query: {
-    pets(_, __, { models }) {
-      return models.Pet.findMany(() => true);
+    pets(_, { filters }, { models }) {
+      return models.Pet.findMany(filters);
+    },
+    pet(_, { id }, { models }) {
+      return models.Pet.findOne({ id });
     },
   },
   // Mutation: {},
